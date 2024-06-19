@@ -1,0 +1,9 @@
+runtime: python311
+env: flex
+service: machine
+
+handlers:
+- url: /.*
+  script: auto
+
+entrypoint: gunicorn -b :$PORT -w 4 -k uvicorn.workers.UvicornWorker main:app
